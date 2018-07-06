@@ -1,0 +1,27 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "health"
+        - "metrics"
+        - "info"
+server:
+  port: 8002
+
+store:
+  product-service-host: http://localhost:8001
+
+---
+
+spring:
+  profiles: production
+  data:
+    mongodb:
+      host: invinvible-starfish-mongodb
+      database: category-service
+
+server:
+  port: 8000
+store:
+  product-service-host: http://product-service
